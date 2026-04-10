@@ -37,7 +37,85 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Curve_001": {
+"mesh_instance/layers": 512
+},
+"PATH:Curve_006": {
+"mesh_instance/layers": 512
+},
+"PATH:Curve_007": {
+"mesh_instance/layers": 512
+},
+"PATH:Curve_008": {
+"mesh_instance/layers": 512
+},
+"PATH:Curve_009": {
+"mesh_instance/layers": 512
+},
+"PATH:Curve_010": {
+"mesh_instance/layers": 512
+},
+"PATH:Curve_011": {
+"mesh_instance/layers": 512
+},
+"PATH:Curve_012": {
+"mesh_instance/layers": 512
+},
+"PATH:Curve_013": {
+"mesh_instance/layers": 512
+},
+"PATH:Curve_014": {
+"mesh_instance/layers": 512
+},
+"PATH:Curve_016": {
+"mesh_instance/layers": 512
+},
+"PATH:Curve_017": {
+"mesh_instance/layers": 512
+},
+"PATH:Curve_018": {
+"mesh_instance/layers": 512
+},
+"PATH:Curve_019": {
+"mesh_instance/layers": 512
+},
+"PATH:Curve_020": {
+"mesh_instance/layers": 512
+},
+"PATH:Curve_021": {
+"mesh_instance/layers": 512
+},
+"PATH:Curve_022": {
+"mesh_instance/layers": 512
+},
+"PATH:Curve_023": {
+"mesh_instance/layers": 512
+},
+"PATH:Curve_024": {
+"mesh_instance/layers": 512
+},
+"PATH:Curve_025": {
+"mesh_instance/layers": 512
+},
+"PATH:LLegLower": {
+"mesh_instance/layers": 512
+},
+"PATH:LLegUpper": {
+"mesh_instance/layers": 512
+},
+"PATH:Plane": {
+"mesh_instance/layers": 512
+},
+"PATH:RLegLower": {
+"mesh_instance/layers": 512
+},
+"PATH:RLegUpper": {
+"mesh_instance/layers": 512
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

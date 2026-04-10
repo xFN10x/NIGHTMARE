@@ -13,6 +13,7 @@ config_version=5
 config/name="NIGHTMARΣ"
 run/main_scene="uid://cuum17oq17xwd"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [display]
@@ -24,9 +25,15 @@ window/size/viewport_height=720
 
 enabled=PackedStringArray("res://addons/wakatime/plugin.cfg")
 
+[layer_names]
+
+3d_render/layer_10="Plr"
+
 [physics]
 
+3d/run_on_separate_thread=true
 3d/physics_engine="Jolt Physics"
+3d/default_gravity=15.874000000000002
 
 [rendering]
 
