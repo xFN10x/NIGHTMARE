@@ -524,7 +524,7 @@ scale = Vector2(0.99999994, 0.99999994)
 
 [node name="Hip" type="Bone2D" parent="Skeleton2D" unique_id=2021178094]
 position = Vector2(812.6984, 1073.0159)
-scale = Vector2(0.99977434, 0.99977434)
+scale = Vector2(0.99977475, 0.99977475)
 rest = Transform2D(0.9998884, 0, 0, 0.9998884, 812.6984, 1073.0159)
 
 [node name="Head" type="Bone2D" parent="Skeleton2D/Hip" unique_id=1791114315]
@@ -536,8 +536,8 @@ rest = Transform2D(-0.14233923, -26.142506, 0.99981606, -0.005469487, 0, -333.33
 
 [node name="RLegUpper" type="Bone2D" parent="Skeleton2D/Hip" unique_id=1878966367]
 position = Vector2(95.460266, -34.920654)
-rotation = -0.8063728
-scale = Vector2(0.9998703, 0.9998703)
+rotation = -0.8063668
+scale = Vector2(0.9998742, 0.9998742)
 rest = Transform2D(0.9998314, -3.0393243e-05, 3.0393243e-05, 0.9998314, 95.460266, -34.920654)
 metadata/_local_pose_override_enabled_ = true
 
@@ -550,8 +550,8 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="LLegUpper" type="Bone2D" parent="Skeleton2D/Hip" unique_id=1025037344]
 position = Vector2(-116.55564, -34.920654)
-rotation = -0.19847858
-scale = Vector2(0.9998297, 0.9998297)
+rotation = -0.20441963
+scale = Vector2(0.9998301, 0.9998301)
 rest = Transform2D(0.99982685, 3.7663613e-05, -3.7663613e-05, 0.99982685, -116.55564, -34.920654)
 metadata/_local_pose_override_enabled_ = true
 

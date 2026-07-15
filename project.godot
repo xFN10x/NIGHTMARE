@@ -13,13 +13,20 @@ config_version=5
 config/name="NIGHTMARΣ"
 run/main_scene="uid://cuum17oq17xwd"
 config/features=PackedStringArray("4.7", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 config/icon="res://icon.svg"
+
+[debug]
+
+settings/crash_handler/message="Oh dear Lost Nightmare! The game has crashed!"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/resizable=false
+window/size/sharp_corners=true
 
 [editor_plugins]
 
