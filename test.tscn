@@ -11,7 +11,7 @@
 size = Vector3(1.1750793, 3.4052124, 1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_bhunq"]
-viewport_path = NodePath("Main/PlayerController/Sprite3D/SubViewport")
+viewport_path = NodePath("Main/PlayerController/Sprite/SubViewport")
 
 [sub_resource type="Environment" id="Environment_8uh7m"]
 background_mode = 1
@@ -34,41 +34,46 @@ uv1_triplanar = true
 [sub_resource type="BoxMesh" id="BoxMesh_g14j6"]
 material = SubResource("StandardMaterial3D_ykrsh")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_riqys"]
+size = Vector3(1, 1, 7.071167)
+
 [node name="Base" type="Node" unique_id=562487871]
 
-[node name="Main" type="Node" parent="." unique_id=785055589]
-
-[node name="Music" type="AudioStreamPlayer" parent="Main" unique_id=242274066]
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=242274066]
 stream = ExtResource("1_g14j6")
 autoplay = true
+
+[node name="Main" type="Node" parent="." unique_id=785055589]
 
 [node name="Camera3D" type="Camera3D" parent="Main" unique_id=46491506 node_paths=PackedStringArray("plr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, 0.297, 10)
 script = ExtResource("1_6uqi0")
 plr = NodePath("../PlayerController")
-initZ = 12
+offsetY = 0.0
+cameraSpeed = 2.0
 
-[node name="PlayerController" type="CharacterBody3D" parent="Main" unique_id=721665295]
+[node name="PlayerController" type="CharacterBody3D" parent="Main" unique_id=721665295 node_paths=PackedStringArray("playerSprite", "playerVisual")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.674998, 0)
 axis_lock_linear_z = true
 axis_lock_angular_z = true
 platform_on_leave = 2
 script = ExtResource("2_8uh7m")
+jumpVel = 15
+playerSprite = NodePath("Sprite")
+playerVisual = NodePath("Sprite/SubViewport/PlayerVisual")
 metadata/_custom_type_script = "uid://qilm5ob51x7p"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Main/PlayerController" unique_id=729316013]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02482605, -0.21750093, 0)
 shape = SubResource("BoxShape3D_bhunq")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Main/PlayerController" unique_id=1950083079]
-
-[node name="Sprite3D" type="Sprite3D" parent="Main/PlayerController" unique_id=2067840032]
+[node name="Sprite" type="Sprite3D" parent="Main/PlayerController" unique_id=2067840032]
 texture = SubResource("ViewportTexture_bhunq")
 
-[node name="SubViewport" type="SubViewport" parent="Main/PlayerController/Sprite3D" unique_id=913714546]
+[node name="SubViewport" type="SubViewport" parent="Main/PlayerController/Sprite" unique_id=913714546]
 transparent_bg = true
 
-[node name="PlayerVisual" parent="Main/PlayerController/Sprite3D/SubViewport" unique_id=1845924304 instance=ExtResource("4_g14j6")]
+[node name="PlayerVisual" parent="Main/PlayerController/Sprite/SubViewport" unique_id=1845924304 instance=ExtResource("4_g14j6")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Main/PlayerController" unique_id=3089515]
 shadow_enabled = true
@@ -82,13 +87,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.721084, 1.3364699, -1.80242
 [node name="WorldEnvironment" type="WorldEnvironment" parent="0_0_test" unique_id=206925229]
 environment = SubResource("Environment_8uh7m")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="0_0_test" unique_id=733319964]
+[node name="Ground" type="StaticBody3D" parent="0_0_test" unique_id=733319964]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="0_0_test/StaticBody3D" unique_id=491026844]
+[node name="Mesh" type="MeshInstance3D" parent="0_0_test/Ground" unique_id=491026844]
 transform = Transform3D(45.82212, 0, 0, 0, 1, 0, 0, 0, 35.36672, 0, -1.2458044, -14.306534)
 mesh = SubResource("BoxMesh_37kl0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="0_0_test/StaticBody3D" unique_id=67166191]
+[node name="Coll" type="CollisionShape3D" parent="0_0_test/Ground" unique_id=67166191]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16418457, -1.2394083, 0)
 shape = SubResource("BoxShape3D_ppyta")
 
@@ -100,5 +105,13 @@ mesh = SubResource("BoxMesh_g14j6")
 transform = Transform3D(1.446185, 0, 0.55771744, 0, 1.5500002, 0, -0.55771744, 0, 1.446185, 15.446609, 0.034791768, -2.1658928)
 mesh = SubResource("BoxMesh_g14j6")
 
-[node name="Skeleton3D" type="Skeleton3D" parent="0_0_test" unique_id=631923747]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.999268, 0, 0)
+[node name="Platform" type="StaticBody3D" parent="0_0_test" unique_id=1167576881]
+transform = Transform3D(0.8871156, 0, -0.46154732, 0, 1, 0, 0.46154732, 0, 0.8871156, -7.127737, 4.314521, -2.1591635)
+
+[node name="Mesh" type="MeshInstance3D" parent="0_0_test/Platform" unique_id=534483839]
+transform = Transform3D(1.1640193, 0, 0, 0, 1, 0, 0, 0, 17.278488, 0, 0, 0)
+mesh = SubResource("BoxMesh_g14j6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="0_0_test/Platform" unique_id=279365354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.0355835)
+shape = SubResource("BoxShape3D_riqys")

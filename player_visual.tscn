@@ -122,6 +122,71 @@ tracks/7/keys = {
 "values": [Vector2(95.460266, -34.920654)]
 }
 
+[sub_resource type="Animation" id="Animation_k3cdp"]
+resource_name = "falling"
+length = 0.0835
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/Hip:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.20366938, 0.22165681500327966]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/RLegTarget:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(884.8449, 1273.1658), Vector2(877.3079, 1268.1411)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/LLegTarget:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(629.5394, 1278.1406), Vector2(640.0911, 1275.6283)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("Skeleton2D/Hip/Head:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.083333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.4867116, -1.4388973]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("Skeleton2D/Hip:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0834),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(812.6984, 1073.0159), Vector2(812.698, 1053.905)]
+}
+
 [sub_resource type="Animation" id="Animation_vxuu0"]
 resource_name = "idle"
 length = 5.0
@@ -163,9 +228,72 @@ tracks/2/keys = {
 "values": [-1.576241, -1.5493225]
 }
 
+[sub_resource type="Animation" id="Animation_hytw4"]
+resource_name = "jump"
+length = 0.16666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/RLegTarget:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666669),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(908.159, 1401.167), Vector2(951.3335, 1261.4845)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/LLegTarget:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666669),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(584.7598, 1400.7102), Vector2(691.0627, 1373.2305)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/Hip:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666669),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.16674277, -0.023325251]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/Hip:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.16666669),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(811.6209, 1258.1758), Vector2(866.0314, 1057.5729)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/Hip/Head:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.533734, -1.8084016]
+}
+
 [sub_resource type="Animation" id="Animation_2v4le"]
 resource_name = "walk"
-length = 2.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -186,10 +314,10 @@ tracks/1/path = NodePath("Skeleton2D/Hip/Head:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.13333334, 0.5, 0.6333334, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [-1.6478136, -1.6478136]
+"values": [-1.6478136, -1.6144295580947547, -1.6478136, -1.6144295580947547, -1.6478136]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -198,7 +326,7 @@ tracks/2/path = NodePath("Skeleton2D/RLegTarget:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5054256, 1.7333335, 1.7666668, 2),
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.7527128, 0.86666673, 0.8833334, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(955.19324, 1400.7422), Vector2(867.59827, 1401.967), Vector2(795.4846, 1402.4015), Vector2(704.2564, 1402.4015), Vector2(611.725, 1389.3689), Vector2(574.3471, 1327.4586), Vector2(711.1325, 1346.2916), Vector2(878.16943, 1307.3569), Vector2(873.0212, 1326.3113), Vector2(955.19324, 1400.7422)]
@@ -210,7 +338,7 @@ tracks/3/path = NodePath("Skeleton2D/LLegTarget:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.5020041, 2),
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.7510021, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(626.84955, 1396.3429), Vector2(568.21735, 1330.099), Vector2(700.63635, 1351.1488), Vector2(853.473, 1317.975), Vector2(983.7989, 1398.777), Vector2(799.7116, 1401.0643), Vector2(626.84955, 1396.3429)]
@@ -222,10 +350,10 @@ tracks/4/path = NodePath("Skeleton2D/Hip:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.2333333, 1.4833333, 1.7333333, 1.9833333),
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.6166667, 0.7416667, 0.8666667, 0.9916667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(812.698, 1066.168), Vector2(812.698, 1098.936), Vector2(812.698, 1087.453), Vector2(812.698, 1080.873), Vector2(812.698, 1066.168), Vector2(812.698, 1098.936), Vector2(812.698, 1087.453), Vector2(812.698, 1080.873), Vector2(812.698, 1066.168)]
+"values": [Vector2(812.698, 1066.168), Vector2(812.698, 1078.936), Vector2(812.698, 1087.453), Vector2(812.698, 1080.873), Vector2(812.698, 1066.168), Vector2(812.698, 1078.936), Vector2(812.698, 1087.453), Vector2(812.698, 1080.873), Vector2(812.698, 1066.168)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -234,7 +362,7 @@ tracks/5/path = NodePath("Skeleton2D/Hip/LLegUpper:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5020041, 2),
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.7510021, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-92.95025, -8.633064), Vector2(-83.375626, -28.297932), Vector2(-35.06774, -23.262657), Vector2(52.071083, -18.015522), Vector2(86.8607, -24.58564), Vector2(54.36304, -28.97396), Vector2(27.392052, -9.133656), Vector2(-92.95025, -8.633064)]
@@ -246,7 +374,7 @@ tracks/6/path = NodePath("Skeleton2D/Hip/RLegUpper:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5020041, 2),
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.7510021, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(86.85767, -20.223057), Vector2(51.57416, -27.65791), Vector2(16.511963, -13.224865), Vector2(-40.37326, -11.269869), Vector2(-84.556114, -7.9056807), Vector2(-83.58047, -26.098402), Vector2(-29.161642, -22.291533), Vector2(86.85767, -20.223057)]
@@ -255,27 +383,72 @@ tracks/6/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k3cdp"]
 _data = {
 &"RESET": SubResource("Animation_xynpl"),
+&"falling": SubResource("Animation_k3cdp"),
 &"idle": SubResource("Animation_vxuu0"),
+&"jump": SubResource("Animation_hytw4"),
 &"walk": SubResource("Animation_2v4le")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xynpl"]
-animation = &"walk"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vxuu0"]
 animation = &"idle"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_2v4le"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vxuu0"]
+animation = &"walk"
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_sn0t7"]
-graph_offset = Vector2(-394.25882, -12.021118)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_vxuu0")
-nodes/Animation/position = Vector2(-80, 80)
-nodes/Blend2/node = SubResource("AnimationNodeBlend2_2v4le")
-nodes/Blend2/position = Vector2(96, 128)
-"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_xynpl")
-"nodes/Animation 2/position" = Vector2(-80, 272)
-node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"Animation", &"Blend2", 1, &"Animation 2"]
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_2v4le"]
+min_space = 0.0
+blend_point_0/node = SubResource("AnimationNodeAnimation_xynpl")
+blend_point_0/pos = 0.0
+blend_point_0/name = &"idle"
+blend_point_1/node = SubResource("AnimationNodeAnimation_vxuu0")
+blend_point_1/pos = 1.0
+blend_point_1/name = &"walk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2v4le"]
+animation = &"jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k3cdp"]
+animation = &"falling"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_hytw4"]
+min_space = -50.0
+max_space = 10.0
+value_label = "velocity"
+blend_point_0/node = SubResource("AnimationNodeAnimation_2v4le")
+blend_point_0/pos = 10.0
+blend_point_0/name = &"jump"
+blend_point_1/node = SubResource("AnimationNodeAnimation_k3cdp")
+blend_point_1/pos = -50.4
+blend_point_1/name = &"falling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k3cdp"]
+priority = 0
+advance_mode = 2
+advance_condition = &"isnt_airborne"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j6j1s"]
+advance_mode = 2
+advance_condition = &"is_airborne"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xynpl"]
+break_loop_at_end = true
+advance_mode = 2
+advance_condition = &"isnt_airborne"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vxuu0"]
+break_loop_at_end = true
+advance_mode = 2
+advance_condition = &"is_airborne"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_51lry"]
+states/End/position = Vector2(630.4, 130.39996)
+states/Start/position = Vector2(224.8, 130.4)
+states/idleToWalk/node = SubResource("AnimationNodeBlendSpace1D_2v4le")
+states/idleToWalk/position = Vector2(400.86713, 99.99949)
+states/verticleVel/node = SubResource("AnimationNodeBlendSpace1D_hytw4")
+states/verticleVel/position = Vector2(401.1871, 185)
+transitions = ["Start", "idleToWalk", SubResource("AnimationNodeStateMachineTransition_k3cdp"), "Start", "verticleVel", SubResource("AnimationNodeStateMachineTransition_j6j1s"), "verticleVel", "idleToWalk", SubResource("AnimationNodeStateMachineTransition_xynpl"), "idleToWalk", "verticleVel", SubResource("AnimationNodeStateMachineTransition_vxuu0")]
+graph_offset = Vector2(89, 44)
 
 [node name="PlayerVisual" type="Node2D" unique_id=1845924304]
 scale = Vector2(0.315, 0.315)
@@ -351,26 +524,25 @@ scale = Vector2(0.99999994, 0.99999994)
 
 [node name="Hip" type="Bone2D" parent="Skeleton2D" unique_id=2021178094]
 position = Vector2(812.6984, 1073.0159)
-scale = Vector2(0.9998884, 0.9998884)
+scale = Vector2(0.99977434, 0.99977434)
 rest = Transform2D(0.9998884, 0, 0, 0.9998884, 812.6984, 1073.0159)
 
 [node name="Head" type="Bone2D" parent="Skeleton2D/Hip" unique_id=1791114315]
 position = Vector2(0, -333.3333)
 rotation = -1.576241
-scale = Vector2(26.142893, 0.999831)
-skew = -2.5749207e-05
+scale = Vector2(26.142794, 0.9998308)
+skew = -2.9444695e-05
 rest = Transform2D(-0.14233923, -26.142506, 0.99981606, -0.005469487, 0, -333.3333)
 
 [node name="RLegUpper" type="Bone2D" parent="Skeleton2D/Hip" unique_id=1878966367]
 position = Vector2(95.460266, -34.920654)
-rotation = -3.0398369e-05
-scale = Vector2(0.9998314, 0.9998314)
+rotation = -0.8063728
+scale = Vector2(0.9998703, 0.9998703)
 rest = Transform2D(0.9998314, -3.0393243e-05, 3.0393243e-05, 0.9998314, 95.460266, -34.920654)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RLegLower" type="Bone2D" parent="Skeleton2D/Hip/RLegUpper" unique_id=61409343]
 position = Vector2(0, 183.517)
-rotation = 1.5707965
 scale = Vector2(11.270917, 11.222003)
 skew = -0.00014996529
 rest = Transform2D(-1.8362655e-06, 11.270917, -11.222003, 0.0016810825, 0, 183.517)
@@ -378,13 +550,14 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="LLegUpper" type="Bone2D" parent="Skeleton2D/Hip" unique_id=1025037344]
 position = Vector2(-116.55564, -34.920654)
-rotation = 3.7670135e-05
-scale = Vector2(0.99982685, 0.99982685)
+rotation = -0.19847858
+scale = Vector2(0.9998297, 0.9998297)
 rest = Transform2D(0.99982685, 3.7663613e-05, -3.7663613e-05, 0.99982685, -116.55564, -34.920654)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="LLegLower" type="Bone2D" parent="Skeleton2D/Hip/LLegUpper" unique_id=818324686]
 position = Vector2(0, 183.517)
+rotation = 1.5707964
 scale = Vector2(11.270995, 11.221994)
 rest = Transform2D(11.270995, 0, 5.3510637e-05, 11.221994, 0, 183.517)
 metadata/_local_pose_override_enabled_ = true
@@ -393,9 +566,13 @@ metadata/_local_pose_override_enabled_ = true
 libraries/ = SubResource("AnimationLibrary_k3cdp")
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1962833180]
-tree_root = SubResource("AnimationNodeBlendTree_sn0t7")
+tree_root = SubResource("AnimationNodeStateMachine_51lry")
+advance_expression_base_node = NodePath("")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Blend2/blend_amount = 0.0
+parameters/conditions/is_airborne = true
+parameters/conditions/isnt_airborne = false
+parameters/idleToWalk/blend_position = -0.050855085
+parameters/verticleVel/blend_position = 0.0
 
 [node name="Ground" type="Sprite2D" parent="." unique_id=612790908]
 visible = false
