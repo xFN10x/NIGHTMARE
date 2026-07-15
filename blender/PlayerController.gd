@@ -8,8 +8,9 @@ class_name PlayerController
 @export var playerSprite : Sprite3D
 @export var playerVisual : Node2D
 @onready var playerVisualAniTree : AnimationTree = playerVisual.get_node("AnimationTree")
-
+@onready var playerVisualPlayback : AnimationNodeStateMachinePlayback = playerVisualAniTree["parameters/playback"]
 @onready var initLoc := position
+var wasOnFloor := false;
 
 func _ready() -> void:
 	playerVisualAniTree.advance_expression_base_node = get_path()
@@ -18,7 +19,7 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y = clamp(velocity.y + (get_gravity().y * delta), -maximumVelocity, maximumVelocity)
-		
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jumpVel
@@ -27,6 +28,9 @@ func _physics_process(delta: float) -> void:
 	playerVisualAniTree.set("parameters/conditions/isnt_airborne", is_on_floor())
 	playerVisualAniTree.set("parameters/conditions/is_airborne", !is_on_floor())
 
+	if (wasOnFloor && not is_on_floor()):
+		playerVisualPlayback.travel("verticleVel")
+		
 	## Get the input direction and handle the movement/deceleration.
 	## As good practice, you should replace UI actions with custom gameplay actions.
 	#var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -41,5 +45,6 @@ func _physics_process(delta: float) -> void:
 	if (movement != 0):
 		playerSprite.flip_h = movement < 0
 	velocity.x = movement * speed
-
+	
+	wasOnFloor = is_on_floor()
 	move_and_slide()

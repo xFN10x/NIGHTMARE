@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://qilm5ob51x7p" path="res://blender/PlayerController.gd" id="2_8uh7m"]
 [ext_resource type="PackedScene" uid="uid://b3us764tm0pdi" path="res://player_visual.tscn" id="4_g14j6"]
 [ext_resource type="Texture2D" uid="uid://fmfwqx7rmmt4" path="res://icon.svg" id="4_ppyta"]
+[ext_resource type="Script" uid="uid://djgdgwcy5yreq" path="res://scripts/room.gd" id="5_vbegm"]
 [ext_resource type="PackedScene" uid="uid://c6nr2dpb5sv65" path="res://blender/plr.blend" id="9_00tp4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bhunq"]
@@ -58,7 +59,8 @@ axis_lock_linear_z = true
 axis_lock_angular_z = true
 platform_on_leave = 2
 script = ExtResource("2_8uh7m")
-jumpVel = 15
+speed = 10.0
+jumpVel = 17
 playerSprite = NodePath("Sprite")
 playerVisual = NodePath("Sprite/SubViewport/PlayerVisual")
 metadata/_custom_type_script = "uid://qilm5ob51x7p"
@@ -79,7 +81,11 @@ transparent_bg = true
 shadow_enabled = true
 omni_range = 17.305
 
-[node name="0_0_test" type="Node" parent="." unique_id=1212515822]
+[node name="0_0_test" type="Node" parent="." unique_id=846890769]
+script = ExtResource("5_vbegm")
+areaName = null
+id = null
+metadata/_custom_type_script = "uid://djgdgwcy5yreq"
 
 [node name="plr" parent="0_0_test" unique_id=1427895531 instance=ExtResource("9_00tp4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.721084, 1.3364699, -1.8024282)
