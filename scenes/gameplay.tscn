@@ -4,14 +4,12 @@
 [ext_resource type="AudioStream" uid="uid://f1vuau121awy" path="res://audio/music/The Old Clocktower.wav" id="2_101mb"]
 [ext_resource type="Script" uid="uid://bhrcsjt83pqw0" path="res://CameraController.gd" id="3_hbo4f"]
 [ext_resource type="Script" uid="uid://qilm5ob51x7p" path="res://blender/PlayerController.gd" id="4_ctvyo"]
+[ext_resource type="Shape3D" uid="uid://bq50gj7sde5nk" path="res://misc/playerHitbox.tres" id="5_hbo4f"]
 [ext_resource type="PackedScene" uid="uid://b3us764tm0pdi" path="res://player_visual.tscn" id="5_qixtg"]
 [ext_resource type="Script" uid="uid://cn6t8s15pmel0" path="res://scripts/manager/roomManager.gd" id="6_nt65e"]
 [ext_resource type="Texture2D" uid="uid://b2gasbcghfyaq" path="res://sprites/areaUnderline.svg" id="7_bhmdk"]
 [ext_resource type="Script" uid="uid://pfaj13gulpet" path="res://ui/scripts/debugUi.gd" id="8_s5y6v"]
 [ext_resource type="AudioStream" uid="uid://b5ot5qbq2rno0" path="res://audio/sfx/AreaEntered.wav" id="9_101mb"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_bhunq"]
-size = Vector3(0.93146515, 3.4052124, 0.19311523)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_bhunq"]
 viewport_path = NodePath("Player/Sprite/SubViewport")
@@ -35,6 +33,42 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackOverlay:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BlackOverlay:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CenteredUI/AreaName:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_ctvyo"]
@@ -67,11 +101,81 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenteredUI/AreaName:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6.7000003),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_101mb"]
+resource_name = "fadeIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackOverlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackOverlay:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_qixtg"]
+resource_name = "fadeOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackOverlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackOverlay:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qixtg"]
 _data = {
 &"RESET": SubResource("Animation_hbo4f"),
-&"areaPopup": SubResource("Animation_ctvyo")
+&"areaPopup": SubResource("Animation_ctvyo"),
+&"fadeIn": SubResource("Animation_101mb"),
+&"fadeOut": SubResource("Animation_qixtg")
 }
 
 [node name="Main" type="Node" unique_id=1794864838 node_paths=PackedStringArray("camera", "player", "roomManager")]
@@ -103,7 +207,7 @@ metadata/_custom_type_script = "uid://qilm5ob51x7p"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1795087701]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0014533997, -0.21750093, -0.008178711)
-shape = SubResource("BoxShape3D_bhunq")
+shape = ExtResource("5_hbo4f")
 
 [node name="Sprite" type="Sprite3D" parent="Player" unique_id=635077823]
 shaded = true
@@ -125,6 +229,17 @@ metadata/_custom_type_script = "uid://cn6t8s15pmel0"
 
 [node name="UI" type="Node" parent="." unique_id=1518853043]
 
+[node name="BlackOverlay" type="ColorRect" parent="UI" unique_id=219071459]
+visible = false
+z_index = 999
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
 [node name="CenteredUI" type="VBoxContainer" parent="UI" unique_id=1670687841]
 anchors_preset = 8
 anchor_left = 0.5
@@ -137,6 +252,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="AreaName" type="Label" parent="UI/CenteredUI" unique_id=406535585]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 offset_transform_enabled = true
@@ -182,6 +298,7 @@ text = "FT: 0.666"
 label_settings = SubResource("LabelSettings_lh26a")
 
 [node name="UIAnimations" type="AnimationPlayer" parent="UI" unique_id=951411915]
+deterministic = true
 libraries/ = SubResource("AnimationLibrary_qixtg")
 
 [node name="UISound" type="AudioStreamPlayer" parent="UI" unique_id=1688668255]

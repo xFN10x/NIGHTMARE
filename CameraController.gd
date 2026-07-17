@@ -13,7 +13,7 @@ func _physics_process(delta: float) -> void:
 	pPos.z = initZ
 	pPos.y += offsetY
 	var currentRoom := gameManager.roomManager.get_room()
-	if currentRoom:
+	if currentRoom and currentRoom.cameraAreaEnabled:
 		var cameraArea := currentRoom.cameraArea
 		position = pPos.clamp(Vector3(cameraArea.x, cameraArea.y, initZ), Vector3(cameraArea.z, cameraArea.w, initZ))
 	else:

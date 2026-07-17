@@ -5,6 +5,8 @@ class_name PlayerController
 @export var jumpVel := 20
 @export var maximumVelocity := 50
 
+@export var controlsEnabled := true
+
 @export var playerSprite : Sprite3D
 @export var playerVisual : Node2D
 @onready var playerVisualAniTree : AnimationTree = playerVisual.get_node("AnimationTree")
@@ -21,7 +23,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = clamp(velocity.y + (get_gravity().y * delta), -maximumVelocity, maximumVelocity)
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() and controlsEnabled:
 		velocity.y = jumpVel
 	playerVisualAniTree.set("parameters/verticleVel/blend_position", velocity.y)
 	
@@ -39,12 +41,13 @@ func _physics_process(delta: float) -> void:
 		#velocity.x = direction.x * SPEED
 	#else:
 		#velocity.x = move_toward(velocity.x, 0, SPEED)
-	var movement := Input.get_axis("moveL", "moveR")
-	var blend := absf(movement)
-	playerVisualAniTree.set("parameters/idleToWalk/blend_position", blend)
-	if (movement != 0):
-		playerSprite.flip_h = movement < 0
-	velocity.x = movement * speed
+	if controlsEnabled:
+		var movement := Input.get_axis("moveL", "moveR")
+		var blend := absf(movement)
+		playerVisualAniTree.set("parameters/idleToWalk/blend_position", blend)
+		if (movement != 0):
+			playerSprite.flip_h = movement < 0
+		velocity.x = movement * speed
 	
 	wasOnFloor = is_on_floor()
 	move_and_slide()
