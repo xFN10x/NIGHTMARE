@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpoqdpu5671lv"
-path="res://.godot/imported/testani.svg-a489924f926f99d4811234ea4f493e07.ctex"
+uid="uid://cr1g8kowqtmal"
+path="res://.godot/imported/area.svg-cd2a2d93e60b89f1936e8dd5e92933b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/player/testani.svg"
-dest_files=["res://.godot/imported/testani.svg-a489924f926f99d4811234ea4f493e07.ctex"]
+source_file="res://icons/area.svg"
+dest_files=["res://.godot/imported/area.svg-cd2a2d93e60b89f1936e8dd5e92933b5.ctex"]
 
 [params]
 

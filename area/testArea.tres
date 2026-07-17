@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Area" format=3 uid="uid://csepx68jaok15"]
+
+[ext_resource type="Script" uid="uid://cyeaixlo0rqu2" path="res://scripts/resource/area.gd" id="1_ygd44"]
+
+[resource]
+script = ExtResource("1_ygd44")
+name = "Test Area"
+metadata/_custom_type_script = "uid://cyeaixlo0rqu2"

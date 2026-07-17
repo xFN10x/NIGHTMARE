@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://cc1ovm5bri8xt"]
+
+[ext_resource type="FontFile" uid="uid://q1f6ln3hwaby" path="res://ui/font/font.ttf" id="1_niasb"]
+
+[resource]
+default_font = ExtResource("1_niasb")

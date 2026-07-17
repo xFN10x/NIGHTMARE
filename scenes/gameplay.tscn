@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://do3gjgxgmxkqp"]
+
+[ext_resource type="Script" uid="uid://bl7ho1vkvdr8k" path="res://scripts/manager/gameManager.gd" id="1_e124b"]
+[ext_resource type="AudioStream" uid="uid://f1vuau121awy" path="res://audio/music/The Old Clocktower.wav" id="2_101mb"]
+[ext_resource type="Script" uid="uid://bhrcsjt83pqw0" path="res://CameraController.gd" id="3_hbo4f"]
+[ext_resource type="Script" uid="uid://qilm5ob51x7p" path="res://blender/PlayerController.gd" id="4_ctvyo"]
+[ext_resource type="PackedScene" uid="uid://b3us764tm0pdi" path="res://player_visual.tscn" id="5_qixtg"]
+[ext_resource type="Script" uid="uid://cn6t8s15pmel0" path="res://scripts/manager/roomManager.gd" id="6_nt65e"]
+[ext_resource type="Texture2D" uid="uid://b2gasbcghfyaq" path="res://sprites/areaUnderline.svg" id="7_bhmdk"]
+[ext_resource type="Script" uid="uid://pfaj13gulpet" path="res://ui/scripts/debugUi.gd" id="8_s5y6v"]
+[ext_resource type="AudioStream" uid="uid://b5ot5qbq2rno0" path="res://audio/sfx/AreaEntered.wav" id="9_101mb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhunq"]
+size = Vector3(0.93146515, 3.4052124, 0.19311523)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bhunq"]
+viewport_path = NodePath("Player/Sprite/SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_bhunq"]
+font_size = 83
+
+[sub_resource type="LabelSettings" id="LabelSettings_lh26a"]
+font_size = 41
+
+[sub_resource type="Animation" id="Animation_hbo4f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenteredUI/AreaName:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ctvyo"]
+resource_name = "areaPopup"
+length = 8.766666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenteredUI/AreaName:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 4.666667, 6.4666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UISound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("9_101mb")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qixtg"]
+_data = {
+&"RESET": SubResource("Animation_hbo4f"),
+&"areaPopup": SubResource("Animation_ctvyo")
+}
+
+[node name="Main" type="Node" unique_id=1794864838 node_paths=PackedStringArray("camera", "player", "roomManager")]
+script = ExtResource("1_e124b")
+camera = NodePath("Camera")
+player = NodePath("Player")
+roomManager = NodePath("RoomManager")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1627049396]
+stream = ExtResource("2_101mb")
+autoplay = true
+
+[node name="Camera" type="Camera3D" parent="." unique_id=464387366 node_paths=PackedStringArray("plr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, 0.297, 10)
+script = ExtResource("3_hbo4f")
+plr = NodePath("../Player")
+offsetY = 0.0
+cameraSpeed = 2.0
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=173291568 node_paths=PackedStringArray("playerSprite", "playerVisual")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.674998, 0)
+axis_lock_linear_z = true
+axis_lock_angular_z = true
+platform_on_leave = 2
+script = ExtResource("4_ctvyo")
+playerSprite = NodePath("Sprite")
+playerVisual = NodePath("Sprite/SubViewport/PlayerVisual")
+metadata/_custom_type_script = "uid://qilm5ob51x7p"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1795087701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0014533997, -0.21750093, -0.008178711)
+shape = SubResource("BoxShape3D_bhunq")
+
+[node name="Sprite" type="Sprite3D" parent="Player" unique_id=635077823]
+shaded = true
+texture = SubResource("ViewportTexture_bhunq")
+
+[node name="SubViewport" type="SubViewport" parent="Player/Sprite" unique_id=2143457758]
+transparent_bg = true
+
+[node name="PlayerVisual" parent="Player/Sprite/SubViewport" unique_id=1845924304 instance=ExtResource("5_qixtg")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Player" unique_id=157192862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.4601848)
+shadow_enabled = true
+omni_range = 17.305
+
+[node name="RoomManager" type="Node" parent="." unique_id=2097097865]
+script = ExtResource("6_nt65e")
+metadata/_custom_type_script = "uid://cn6t8s15pmel0"
+
+[node name="UI" type="Node" parent="." unique_id=1518853043]
+
+[node name="CenteredUI" type="VBoxContainer" parent="UI" unique_id=1670687841]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_right = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AreaName" type="Label" parent="UI/CenteredUI" unique_id=406535585]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_transform_enabled = true
+text = "a"
+label_settings = SubResource("LabelSettings_bhunq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/CenteredUI/AreaName" unique_id=1720103439]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -240.5
+offset_right = 125.0
+offset_bottom = 240.5
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 163.335)
+texture = ExtResource("7_bhmdk")
+patch_margin_left = 148
+patch_margin_top = 481
+patch_margin_right = 98
+
+[node name="DebugLabels" type="VBoxContainer" parent="UI" unique_id=24940264]
+offset_right = 234.0
+offset_bottom = 53.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("8_s5y6v")
+
+[node name="FPS" type="Label" parent="UI/DebugLabels" unique_id=1175548625]
+layout_mode = 2
+text = "FPS: 60"
+label_settings = SubResource("LabelSettings_lh26a")
+
+[node name="FT" type="Label" parent="UI/DebugLabels" unique_id=1741924637]
+layout_mode = 2
+text = "FT: 0.666"
+label_settings = SubResource("LabelSettings_lh26a")
+
+[node name="UIAnimations" type="AnimationPlayer" parent="UI" unique_id=951411915]
+libraries/ = SubResource("AnimationLibrary_qixtg")
+
+[node name="UISound" type="AudioStreamPlayer" parent="UI" unique_id=1688668255]

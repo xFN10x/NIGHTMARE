@@ -1,8 +1,8 @@
 extends CharacterBody3D
 class_name PlayerController
 
-@export var speed := 8.0
-@export var jumpVel := 10
+@export var speed := 10.0
+@export var jumpVel := 20
 @export var maximumVelocity := 50
 
 @export var playerSprite : Sprite3D
