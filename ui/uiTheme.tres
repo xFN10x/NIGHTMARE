@@ -1,3 +1,27 @@
-[gd_resource type="Theme" format=3 uid="uid://b1hhromka3ox"]
+[gd_resource type="Theme" format=3 uid="uid://cc1ovm5bri8xt"]
+
+[ext_resource type="FontFile" uid="uid://q1f6ln3hwaby" path="res://ui/font/font.ttf" id="1_niasb"]
+[ext_resource type="Texture2D" uid="uid://prqlh8nkxm6k" path="res://sprites/ui/barbg.svg" id="1_opekn"]
+[ext_resource type="Texture2D" uid="uid://c7whevhh8lqe8" path="res://sprites/ui/healthbar.svg" id="2_xqrcr"]
+[ext_resource type="Texture2D" uid="uid://3iem2os2pddd" path="res://sprites/ui/darknessbar.svg" id="2_xxhm2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xxhm2"]
+texture = ExtResource("1_opekn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gud00"]
+texture = ExtResource("2_xxhm2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bhunq"]
+texture = ExtResource("1_opekn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7rkh4"]
+texture = ExtResource("2_xqrcr")
 
 [resource]
+default_font = ExtResource("1_niasb")
+DarknessBar/base_type = &"ProgressBar"
+DarknessBar/styles/background = SubResource("StyleBoxTexture_xxhm2")
+DarknessBar/styles/fill = SubResource("StyleBoxTexture_gud00")
+HealthBar/base_type = &"ProgressBar"
+HealthBar/styles/background = SubResource("StyleBoxTexture_bhunq")
+HealthBar/styles/fill = SubResource("StyleBoxTexture_7rkh4")

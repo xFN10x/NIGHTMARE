@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dt6k3e0ciorip"]
+
+[ext_resource type="Script" uid="uid://caacl44puj2ox" path="res://scenes/debug/loop_point_grabber.gd" id="1_jxjbq"]
+
+[node name="LoopPointGrabber" type="Node2D" unique_id=394126735]
+script = ExtResource("1_jxjbq")
+
+[node name="FileDialog" type="FileDialog" parent="." unique_id=578856241]
+oversampling_override = 1.0
+title = "Open a File"
+position = Vector2i(0, 36)
+visible = true
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.mmpz")
+use_native_dialog = true
+
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]

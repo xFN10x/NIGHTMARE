@@ -36,7 +36,7 @@ size = Vector3(2.0532227, 12.552734, 1.8134766)
 
 [sub_resource type="BoxMesh" id="BoxMesh_i7p6j"]
 material = SubResource("StandardMaterial3D_ykrsh")
-size = Vector3(111.31787, 32.05539, 1.8134766)
+size = Vector3(111.31787, 45.8275, 1.8134766)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_betf1"]
 size = Vector3(22.558594, 33.581726, 1.367157)
@@ -49,7 +49,7 @@ uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_nnide"]
 material = SubResource("StandardMaterial3D_nnide")
-size = Vector3(26.95996, 32.05539, 1.8134766)
+size = Vector3(26.95996, 46.17955, 1.8134766)
 
 [sub_resource type="BoxMesh" id="BoxMesh_betf1"]
 material = SubResource("StandardMaterial3D_nnide")
@@ -71,6 +71,9 @@ radius = 2.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bhunq"]
 size = Vector3(1, 4.540283, 4.311859)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nnide"]
+size = Vector3(30.863708, 1.3692627, 4.311859)
 
 [node name="testRoom" type="Node3D" unique_id=1748170324]
 script = ExtResource("1_i7p6j")
@@ -113,7 +116,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.779297, 0, 3.2870336)
 shape = SubResource("BoxShape3D_riqys")
 
 [node name="Platform2" type="StaticBody3D" parent="." unique_id=162610356]
-transform = Transform3D(0.8871156, 0, -0.46154732, 0, 1, 0, 0.46154732, 0, 0.8871156, 1.6565037, 16.195105, -1.4636374)
+transform = Transform3D(0.82518584, 0.36707908, -0.42932656, -0.32564157, 0.9301897, 0.16942437, 0.46154732, 0, 0.8871156, 1.6565037, 16.195105, -1.4636374)
 
 [node name="Mesh" type="MeshInstance3D" parent="Platform2" unique_id=566941240]
 transform = Transform3D(0.8692379, 0, -4.7683716e-07, 0, 1, 0, 1.4901161e-07, 0, 7.7547083, -11.282688, 0, 3.1541328)
@@ -142,7 +145,7 @@ shape = SubResource("BoxShape3D_riqys")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 24.71852, 7.0756626, 2.2924318)
 
 [node name="Mesh" type="MeshInstance3D" parent="Wall" unique_id=1866007614]
-transform = Transform3D(0.8692379, 0, -4.7683716e-07, 0, 1, 0, 1.4901161e-07, 0, 7.7547083, 8.77069, 6.845291, 3.1541367)
+transform = Transform3D(0.8692379, 0, -4.7683716e-07, 0, 1, 0, 1.4901161e-07, 0, 7.7547083, 8.77069, 13.731346, 3.1541367)
 mesh = SubResource("BoxMesh_i7p6j")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall" unique_id=276942318]
@@ -153,7 +156,7 @@ shape = SubResource("BoxShape3D_betf1")
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -26.129759, 14.292704, -20.481949)
 
 [node name="Mesh" type="MeshInstance3D" parent="Wall2" unique_id=1727728669]
-transform = Transform3D(0.8692379, 0, -4.7683716e-07, 0, 1, 0, 1.4901161e-07, 0, 7.7547083, -11.282688, 6.845291, 3.1541328)
+transform = Transform3D(0.8692379, 0, -4.7683716e-07, 0, 1, 0, 1.4901161e-07, 0, 7.7547083, -11.282686, 13.9073715, 3.154129)
 mesh = SubResource("BoxMesh_nnide")
 
 [node name="Mesh2" type="MeshInstance3D" parent="Wall2" unique_id=1998908087]
@@ -198,3 +201,15 @@ metadata/_custom_type_script = "uid://vod043yarufh"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RoomExit" unique_id=5065750]
 shape = SubResource("BoxShape3D_bhunq")
+
+[node name="RoomExit2" type="Area3D" parent="." unique_id=354212429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09675026, 32.422188, 0.28502798)
+script = ExtResource("5_betf1")
+exitID = 1
+direction = Vector3(0, 1, 0)
+destination = "uid://df3rmji2o1761"
+destinationExitID = 1
+metadata/_custom_type_script = "uid://vod043yarufh"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomExit2" unique_id=1875706384]
+shape = SubResource("BoxShape3D_nnide")

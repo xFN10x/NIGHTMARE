@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bl7ho1vkvdr8k" path="res://scripts/manager/gameManager.gd" id="1_e124b"]
 [ext_resource type="AudioStream" uid="uid://f1vuau121awy" path="res://audio/music/The Old Clocktower.wav" id="2_101mb"]
-[ext_resource type="Script" uid="uid://bhrcsjt83pqw0" path="res://CameraController.gd" id="3_hbo4f"]
-[ext_resource type="Script" uid="uid://qilm5ob51x7p" path="res://blender/PlayerController.gd" id="4_ctvyo"]
+[ext_resource type="Script" uid="uid://b7xea5ryqgs80" path="res://scripts/controller/cameraController.gd" id="3_ctvyo"]
+[ext_resource type="Script" uid="uid://3nde7yyvlnoy" path="res://scripts/controller/playerController.gd" id="3_hbo4f"]
 [ext_resource type="Shape3D" uid="uid://bq50gj7sde5nk" path="res://misc/playerHitbox.tres" id="5_hbo4f"]
 [ext_resource type="PackedScene" uid="uid://b3us764tm0pdi" path="res://player_visual.tscn" id="5_qixtg"]
 [ext_resource type="Script" uid="uid://cn6t8s15pmel0" path="res://scripts/manager/roomManager.gd" id="6_nt65e"]
 [ext_resource type="Texture2D" uid="uid://b2gasbcghfyaq" path="res://sprites/areaUnderline.svg" id="7_bhmdk"]
+[ext_resource type="Texture2D" uid="uid://dha24w46r5w44" path="res://sprites/equipmentbg.svg" id="8_ctvyo"]
 [ext_resource type="Script" uid="uid://pfaj13gulpet" path="res://ui/scripts/debugUi.gd" id="8_s5y6v"]
 [ext_resource type="AudioStream" uid="uid://b5ot5qbq2rno0" path="res://audio/sfx/AreaEntered.wav" id="9_101mb"]
 
@@ -69,6 +70,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BlackOverlay:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_ctvyo"]
@@ -170,17 +183,75 @@ tracks/1/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_nt65e"]
+resource_name = "instaFadeIn"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackOverlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackOverlay:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_bhmdk"]
+resource_name = "instaFadeOut"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackOverlay:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackOverlay:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qixtg"]
 _data = {
 &"RESET": SubResource("Animation_hbo4f"),
 &"areaPopup": SubResource("Animation_ctvyo"),
 &"fadeIn": SubResource("Animation_101mb"),
-&"fadeOut": SubResource("Animation_qixtg")
+&"fadeOut": SubResource("Animation_qixtg"),
+&"instaFadeIn": SubResource("Animation_nt65e"),
+&"instaFadeOut": SubResource("Animation_bhmdk")
 }
 
 [node name="Main" type="Node" unique_id=1794864838 node_paths=PackedStringArray("camera", "player", "roomManager")]
 script = ExtResource("1_e124b")
-camera = NodePath("Camera")
+camera = NodePath("CameraController")
 player = NodePath("Player")
 roomManager = NodePath("RoomManager")
 
@@ -188,22 +259,19 @@ roomManager = NodePath("RoomManager")
 stream = ExtResource("2_101mb")
 autoplay = true
 
-[node name="Camera" type="Camera3D" parent="." unique_id=464387366 node_paths=PackedStringArray("plr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, 0.297, 10)
-script = ExtResource("3_hbo4f")
-plr = NodePath("../Player")
-offsetY = 0.0
-cameraSpeed = 2.0
+[node name="CameraController" type="Camera3D" parent="." unique_id=311195336]
+script = ExtResource("3_ctvyo")
+metadata/_custom_type_script = "uid://b7xea5ryqgs80"
 
-[node name="Player" type="CharacterBody3D" parent="." unique_id=173291568 node_paths=PackedStringArray("playerSprite", "playerVisual")]
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1973198499 node_paths=PackedStringArray("entitySprite", "entityVisual")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.674998, 0)
 axis_lock_linear_z = true
 axis_lock_angular_z = true
 platform_on_leave = 2
-script = ExtResource("4_ctvyo")
-playerSprite = NodePath("Sprite")
-playerVisual = NodePath("Sprite/SubViewport/PlayerVisual")
-metadata/_custom_type_script = "uid://qilm5ob51x7p"
+script = ExtResource("3_hbo4f")
+entitySprite = NodePath("Sprite")
+entityVisual = NodePath("Sprite/SubViewport/PlayerVisual")
+metadata/_custom_type_script = "uid://3nde7yyvlnoy"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1795087701]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0014533997, -0.21750093, -0.008178711)
@@ -228,6 +296,46 @@ script = ExtResource("6_nt65e")
 metadata/_custom_type_script = "uid://cn6t8s15pmel0"
 
 [node name="UI" type="Node" parent="." unique_id=1518853043]
+
+[node name="MainDisplay" type="Control" parent="UI" unique_id=1660937438]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 466.0
+offset_bottom = 121.0
+
+[node name="HealthBar" type="ProgressBar" parent="UI/MainDisplay" unique_id=846329833]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 10.0
+offset_right = 418.0
+offset_bottom = 48.0
+theme_type_variation = &"HealthBar"
+max_value = 50.0
+step = 0.0
+value = 50.0
+show_percentage = false
+
+[node name="DarknessBar" type="ProgressBar" parent="UI/MainDisplay" unique_id=1000014275]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 51.0
+offset_right = 281.0
+offset_bottom = 123.0
+theme_type_variation = &"DarknessBar"
+max_value = 50.0
+step = 0.0
+value = 21.195
+show_percentage = false
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/MainDisplay" unique_id=2128111918]
+layout_mode = 0
+offset_right = 130.0
+offset_bottom = 130.0
+texture = ExtResource("8_ctvyo")
+patch_margin_left = 14
+patch_margin_top = 14
+patch_margin_right = 14
+patch_margin_bottom = 14
 
 [node name="BlackOverlay" type="ColorRect" parent="UI" unique_id=219071459]
 visible = false
@@ -281,8 +389,15 @@ patch_margin_top = 481
 patch_margin_right = 98
 
 [node name="DebugLabels" type="VBoxContainer" parent="UI" unique_id=24940264]
-offset_right = 234.0
-offset_bottom = 53.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -234.0
+offset_top = -110.0
+grow_horizontal = 0
+grow_vertical = 0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("8_s5y6v")

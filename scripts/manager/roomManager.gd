@@ -1,6 +1,8 @@
 extends Node
 class_name RoomManager
 
+signal roomLoaded(room : Room)
+
 var _currentRoom : Room
 var _currentArea : Area
 
@@ -41,9 +43,10 @@ func _process(delta: float) -> void:
 		gameManager.player.position = _roomEnterLoc
 		_loaded = true
 		if not _lastArea == _currentRoom.area:
-			_lastArea = _currentRoom.area
 			areaNameLabel.text = _currentRoom.area.name
 			uiAnimations.play("areaPopup")
+		_lastArea = _currentRoom.area
+		roomLoaded.emit(_currentRoom)
 
 func timer(leng: float) -> Signal:
 	return get_tree().create_timer(leng).timeout

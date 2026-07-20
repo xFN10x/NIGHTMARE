@@ -37,7 +37,7 @@ enabled=PackedStringArray("res://addons/wakatime/plugin.cfg")
 
 [gui]
 
-theme/custom="uid://b1hhromka3ox"
+theme/custom="uid://cc1ovm5bri8xt"
 theme/custom_font="uid://q1f6ln3hwaby"
 
 [input]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b3us764tm0pdi"]
 
 [ext_resource type="Texture2D" uid="uid://bbrv4ia63yd5b" path="res://sprites/player/base.svg" id="1_3rtdo"]
+[ext_resource type="Script" uid="uid://cadl31pb82eel" path="res://entityVisual.gd" id="1_vxuu0"]
 [ext_resource type="Texture2D" uid="uid://fmfwqx7rmmt4" path="res://icon.svg" id="2_xynpl"]
 
 [sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_sn0t7"]
@@ -346,7 +347,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_15xsy"]
 resource_name = "startWalk"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -611,8 +612,10 @@ states/verticleVel/position = Vector2(401.8553, 251.40002)
 transitions = ["Start", "idleToWalk", SubResource("AnimationNodeStateMachineTransition_k3cdp"), "idleToWalk", "verticleVel", SubResource("AnimationNodeStateMachineTransition_vxuu0"), "verticleVel", "land", SubResource("AnimationNodeStateMachineTransition_15xsy"), "land", "verticleVel", SubResource("AnimationNodeStateMachineTransition_xynpl"), "land", "idleToWalk", SubResource("AnimationNodeStateMachineTransition_fvwek")]
 graph_offset = Vector2(22, 44)
 
-[node name="PlayerVisual" type="Node2D" unique_id=1845924304]
+[node name="PlayerVisual" type="Node2D" unique_id=1845924304 node_paths=PackedStringArray("animationTree")]
 scale = Vector2(0.315, 0.315)
+script = ExtResource("1_vxuu0")
+animationTree = NodePath("AnimationTree")
 
 [node name="Polygons" type="Node2D" parent="." unique_id=623758900]
 position = Vector2(0, 7.3704305)
@@ -691,14 +694,14 @@ rest = Transform2D(0.9998158, 0, 0, 0.9998158, 812.6984, 1073.0159)
 [node name="Head" type="Bone2D" parent="Skeleton2D/Hip" unique_id=1791114315]
 position = Vector2(0, -333.3333)
 rotation = 4.7069445
-scale = Vector2(26.14295, 0.99983096)
+scale = Vector2(26.142958, 0.9998306)
 skew = -2.9563904e-05
 rest = Transform2D(-0.14233916, -26.14249, 0.99981487, -0.005469838, 0, -333.3333)
 
 [node name="RLegUpper" type="Bone2D" parent="Skeleton2D/Hip" unique_id=1878966367]
 position = Vector2(95.460266, -34.920654)
-rotation = -0.034863528
-scale = Vector2(0.99982715, 0.99982715)
+rotation = -0.08853217
+scale = Vector2(0.9998265, 0.9998265)
 rest = Transform2D(0.9998389, -4.9106315e-05, 4.9106315e-05, 0.9998389, 95.460266, -34.920654)
 metadata/_local_pose_override_enabled_ = true
 
@@ -711,8 +714,8 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="LLegUpper" type="Bone2D" parent="Skeleton2D/Hip" unique_id=1025037344]
 position = Vector2(-116.55564, -34.920654)
-rotation = -0.049951978
-scale = Vector2(0.9998291, 0.9998291)
+rotation = -0.086351566
+scale = Vector2(0.9998312, 0.9998312)
 rest = Transform2D(0.9998296, 6.138232e-05, -6.138232e-05, 0.9998296, -116.55564, -34.920654)
 metadata/_local_pose_override_enabled_ = true
 

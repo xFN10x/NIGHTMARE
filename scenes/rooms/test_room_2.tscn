@@ -7,10 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://fmfwqx7rmmt4" path="res://icon.svg" id="5_u8mh5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_10j0o"]
-size = Vector3(1, 28.099121, 4.4989014)
+size = Vector3(0.34179688, 28.099121, 0.6280365)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u8mh5"]
+size = Vector3(1.1791992, 71.20069, 0.09868622)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kpspm"]
-size = Vector3(47.135498, 1, 1)
+size = Vector3(16.49945, 31.55371, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_engsc"]
 size = Vector3(1, 4.540283, 4.311859)
@@ -32,25 +35,41 @@ size = Vector3(22.333984, 32.485336, 1.8134766)
 [sub_resource type="BoxShape3D" id="BoxShape3D_len72"]
 size = Vector3(22.558594, 31.550629, 1.367157)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_u8mh5"]
+size = Vector3(18.598633, 0.9888916, 4.311859)
+
 [node name="testRoom2" type="Node3D" unique_id=1461642883]
 script = ExtResource("1_jx2mw")
 area = ExtResource("2_u8mh5")
 id = 1
-defaultPlayerPosition = Vector3(0, 1.17, 0)
+defaultPlayerPosition = Vector3(11.7, 1.17, 0)
+cameraAreaEnabled = true
+cameraArea = Vector4(-17.625, -11.585, 17.625, 5.645)
 metadata/_custom_type_script = "uid://djgdgwcy5yreq"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=972518369]
 environment = ExtResource("2_wk688")
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=27332235]
-transform = Transform3D(1.9610491, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Mesh" type="MeshInstance3D" parent="Ground" unique_id=90771766]
-transform = Transform3D(45.82212, 0, 0, 0, 1, 0, 0, 0, 35.36672, 0, -14.795365, 47.565796)
+transform = Transform3D(45.82212, 0, 0, 0, 1, 0, 0, 0, 35.36672, 15.080132, -14.795365, -1.6772985)
 mesh = SubResource("BoxMesh_10j0o")
 
+[node name="Mesh3" type="MeshInstance3D" parent="Ground" unique_id=369785908]
+transform = Transform3D(45.82212, 0, 0, 0, 1, 0, 0, 0, 35.36672, -16.524862, -14.795365, -1.6772985)
+mesh = SubResource("BoxMesh_10j0o")
+
+[node name="Mesh2" type="MeshInstance3D" parent="Ground" unique_id=2048287053]
+transform = Transform3D(45.82212, 0, 0, 0, 1, 0, 0, 0, 35.36672, -4.105644, -20.519989, -11.03799)
+mesh = SubResource("BoxMesh_u8mh5")
+
 [node name="Coll" type="CollisionShape3D" parent="Ground" unique_id=1364259464]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16418457, -1.2394083, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.482208, -16.516264, 0)
+shape = SubResource("BoxShape3D_kpspm")
+
+[node name="Coll2" type="CollisionShape3D" parent="Ground" unique_id=2076348591]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.81181, -16.516264, 0)
 shape = SubResource("BoxShape3D_kpspm")
 
 [node name="RoomExit" type="Area3D" parent="." unique_id=1012922040]
@@ -81,3 +100,15 @@ mesh = SubResource("BoxMesh_yk6yt")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RoomExit/Wall2" unique_id=1714518019]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.779297, 6.7439117, 9.782639)
 shape = SubResource("BoxShape3D_len72")
+
+[node name="RoomExit2" type="Area3D" parent="." unique_id=1776210995]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.038219452, -10.6959915, 0.28502798)
+script = ExtResource("3_kpspm")
+exitID = 1
+direction = Vector3(0, -1, 0)
+destination = "uid://bvr4usn17jm0y"
+destinationExitID = 1
+metadata/_custom_type_script = "uid://vod043yarufh"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomExit2" unique_id=1396826477]
+shape = SubResource("BoxShape3D_u8mh5")
