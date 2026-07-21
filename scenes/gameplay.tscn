@@ -324,8 +324,26 @@ offset_bottom = 123.0
 theme_type_variation = &"DarknessBar"
 max_value = 50.0
 step = 0.0
-value = 21.195
 show_percentage = false
+
+[node name="Label" type="RichTextLabel" parent="UI/MainDisplay/DarknessBar" unique_id=190965262]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.087000005
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -13.833001
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"Number"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6156863)
+bbcode_enabled = true
+text = "[img height=30]res://sprites/darknessorb.svg[/img]1000"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="NinePatchRect" type="NinePatchRect" parent="UI/MainDisplay" unique_id=2128111918]
 layout_mode = 0

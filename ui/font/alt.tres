@@ -1,0 +1,12 @@
+[gd_resource type="FontVariation" format=3 uid="uid://bhnnwhcrojsv2"]
+
+[ext_resource type="FontFile" uid="uid://vmxwwe7w76ci" path="res://ui/font/faunces.ttf" id="1_uflgl"]
+
+[resource]
+base_font = ExtResource("1_uflgl")
+variation_opentype = {
+1397704276: 0,
+1464815179: 1,
+1869640570: 9,
+2003265652: 452
+}

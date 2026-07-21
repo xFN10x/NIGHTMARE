@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://prqlh8nkxm6k" path="res://sprites/ui/barbg.svg" id="1_opekn"]
 [ext_resource type="Texture2D" uid="uid://c7whevhh8lqe8" path="res://sprites/ui/healthbar.svg" id="2_xqrcr"]
 [ext_resource type="Texture2D" uid="uid://3iem2os2pddd" path="res://sprites/ui/darknessbar.svg" id="2_xxhm2"]
+[ext_resource type="FontFile" uid="uid://vmxwwe7w76ci" path="res://ui/font/faunces.ttf" id="4_gud00"]
+[ext_resource type="FontVariation" uid="uid://bhnnwhcrojsv2" path="res://ui/font/alt.tres" id="5_nr8t3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xxhm2"]
 texture = ExtResource("1_opekn")
@@ -25,3 +27,11 @@ DarknessBar/styles/fill = SubResource("StyleBoxTexture_gud00")
 HealthBar/base_type = &"ProgressBar"
 HealthBar/styles/background = SubResource("StyleBoxTexture_bhunq")
 HealthBar/styles/fill = SubResource("StyleBoxTexture_7rkh4")
+Number/base_type = &"RichTextLabel"
+Number/font_sizes/normal_font_size = 33
+Number/fonts/bold_font = ExtResource("4_gud00")
+Number/fonts/bold_italics_font = ExtResource("4_gud00")
+Number/fonts/font = ExtResource("4_gud00")
+Number/fonts/italics_font = ExtResource("4_gud00")
+Number/fonts/mono_font = ExtResource("4_gud00")
+Number/fonts/normal_font = ExtResource("5_nr8t3")
