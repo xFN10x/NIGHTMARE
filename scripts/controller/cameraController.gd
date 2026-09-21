@@ -1,6 +1,10 @@
 extends Camera3D
 class_name CameraController
-
+# best easter egg:
+# if you get to the first boss to fast, it displays a message saying:
+# "This boss isn't ready yet. Come back in 5 minutes." (maybe make it in like ocolots voice from mgsv)
+# then it teleports you to lahave, and you find a marcy head that
+# drops you a seal upgrade that does something
 @onready var gameManager : GameManager = $".."
 @onready var plr := gameManager.player
 @onready var block := $"../UI/BlackOverlay"

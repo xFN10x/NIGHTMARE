@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cn6t8s15pmel0" path="res://scripts/manager/roomManager.gd" id="6_nt65e"]
 [ext_resource type="Texture2D" uid="uid://b2gasbcghfyaq" path="res://sprites/areaUnderline.svg" id="7_bhmdk"]
 [ext_resource type="Texture2D" uid="uid://dha24w46r5w44" path="res://sprites/equipmentbg.svg" id="8_ctvyo"]
+[ext_resource type="Script" uid="uid://dfwhlhs3s86de" path="res://scripts/smoothBar.gd" id="8_qixtg"]
 [ext_resource type="Script" uid="uid://pfaj13gulpet" path="res://ui/scripts/debugUi.gd" id="8_s5y6v"]
 [ext_resource type="AudioStream" uid="uid://b5ot5qbq2rno0" path="res://audio/sfx/AreaEntered.wav" id="9_101mb"]
 
@@ -303,17 +304,21 @@ anchors_preset = 0
 offset_right = 466.0
 offset_bottom = 121.0
 
-[node name="HealthBar" type="ProgressBar" parent="UI/MainDisplay" unique_id=846329833]
+[node name="HealthBar" type="ProgressBar" parent="UI/MainDisplay" unique_id=1788698982]
 layout_mode = 0
 offset_left = 127.0
 offset_top = 10.0
 offset_right = 418.0
 offset_bottom = 48.0
 theme_type_variation = &"HealthBar"
-max_value = 50.0
+max_value = 59.0
 step = 0.0
-value = 50.0
+value = 1.0
 show_percentage = false
+script = ExtResource("8_qixtg")
+trueValue = 1.0
+smoothness = 1.0
+metadata/_custom_type_script = "uid://dfwhlhs3s86de"
 
 [node name="DarknessBar" type="ProgressBar" parent="UI/MainDisplay" unique_id=1000014275]
 layout_mode = 0
